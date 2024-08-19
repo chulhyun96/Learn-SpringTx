@@ -25,7 +25,7 @@ public class InternalCallV1Test {
     }
     @Test
     void internalTest() {
-        callService.service.internal();
+        callService.internal();
     }
     @Test
     void proxyCheck() {
@@ -57,7 +57,8 @@ public class InternalCallV1Test {
             log.info("call external");
             printTxInfo();
             //만약 여기서 internal을 호출 한다면?????
-            service.internal();
+            /*service.internal();*/
+            internal();
         }
         /*public void external() {
             log.info("call external");
@@ -65,11 +66,11 @@ public class InternalCallV1Test {
             //만약 여기서 internal을 호출 한다면?????
             internal();
         }*/
-        /*@Transactional
+        @Transactional
         public void internal() {
             log.info("call internal");
             printTxInfo();
-        }*/
+        }
 
         private void printTxInfo() {
             boolean txActive = TransactionSynchronizationManager.isActualTransactionActive();
